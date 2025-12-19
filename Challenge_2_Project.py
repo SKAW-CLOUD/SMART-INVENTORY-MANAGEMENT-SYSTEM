@@ -148,10 +148,16 @@ products = {
 
 def view():
     print("\n\t --- ITEM LIST ---")
+    low_item = [ ]
     for key, info in products.items():
         print(f'{key}  :    {info["name"]:<10}    {info["price"]:<10}    {info["qty"]:<10} \n')
-        if low_stock(key):
-            break
+        # if low_stock(key):
+        #     break
+        if info["qty"] <= 10:
+            low_item.append(key)
+    for item_id in low_item:
+        low_stock(item_id)
+       
 
        
 
